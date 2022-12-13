@@ -15,12 +15,14 @@
 * new naver.maps.Map(document.getElementById('map')/* , 옵션 */)
 -->
 <script>
+// geolocation 객체는 NCP 꺼가 아니라 웹 표준이다
 navigator.geolocation.getCurrentPosition(showPosition)
 
-// 전역변수 그만 사용하고 콜백으로 넘기는 방법부터 익숙해지자
+// 전역변수 그만 사용하고 콜백으로 넘기는 방법좀 익숙해지자
 function showPosition (position) { 
   loadMap(position.coords.latitude,
   position.coords.longitude)
+  
   console.log(position.coords.latitude,
   position.coords.longitude)
 }
