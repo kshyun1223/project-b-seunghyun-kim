@@ -10,10 +10,9 @@ export class MapController {
   }
 } */
 
-@Controller('map')
+@Controller('/')
 export class MapController {
   constructor(private mapService: MapService){}
-
   @Get()
   getMap(){
     return this.mapService.getMap()
