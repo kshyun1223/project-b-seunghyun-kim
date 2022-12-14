@@ -1,7 +1,7 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Get, Controller, Render } from '@nestjs/common';
 // import { MapService } from './map.service';
 
-@Controller('map')
+@Controller('/')
 export class MapController {
   // constructor(private mapService : MapService){}
   @Get()
