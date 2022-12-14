@@ -1,20 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import { Get, Controller, Render } from '@nestjs/common';
 import { MapService } from './map.service';
-
-/* @Controller('map')
-export class MapController {
-  mapService : MapService
-
-  constructor(mapService : MapService) {
-    this.mapService = mapService
-  }
-} */
 
 @Controller('/')
 export class MapController {
-  constructor(private mapService: MapService){}
+  constructor(private mapService : MapService){}
   @Get()
-  getMap(){
-    return this.mapService.getMap()
+  @Render('index')
+  root() {
+    return this.mapService.getLogic()
   }
 }
