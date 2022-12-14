@@ -1,12 +1,12 @@
 import { Get, Controller, Render } from '@nestjs/common';
-// import { MapService } from './map.service';
+import { MapService } from './map.service';
 
 @Controller('/')
 export class MapController {
-  // constructor(private mapService : MapService){}
+  constructor(private mapService : MapService){}
   @Get()
   @Render('index')
   root() {
-    return { message: '젭알좀되라!!!' };
+    return this.mapService.getLogic()
   }
 }
