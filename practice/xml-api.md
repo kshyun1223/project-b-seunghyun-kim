@@ -1,3 +1,4 @@
+```javascript
 import { xml2json } from 'xml-js'
 
 fetch('https://openapi.its.go.kr:9443/trafficInfo?apiKey=test&type=all&minX=126.800000&maxX=127.890000&minY=34.900000&maxY=35.100000&getType=json')
@@ -14,3 +15,4 @@ const result = (xml: string) => {
   var result2 = xml2json(xml, {compact: false, spaces: 4});
   console.log(result1, '\n', result2)
 }
+```

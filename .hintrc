@@ -4,21 +4,6 @@
   ],
   "hints": {
     "typescript-config/strict": "off",
-    "typescript-config/consistent-casing": "off",
-    "axe/text-alternatives": [
-      "default",
-      {
-        "document-title": "off"
-      }
-    ],
-    "axe/language": [
-      "default",
-      {
-        "html-has-lang": "off"
-      }
-    ],
-    "highest-available-document-mode": "off",
-    "no-inline-styles": "off",
-    "meta-viewport": "off"
+    "typescript-config/consistent-casing": "off"
   }
 }
