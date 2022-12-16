@@ -29,5 +29,5 @@
 - 교통소통정보, 네이버지도 API 사용법 파악
 
 ### 221216
-- 교통소통정보 API가 응답하는 데이터를 JSON으로 파싱
+- 교통소통정보 API가 응답하는 XML 데이터를 JSON으로 파싱
 - VSCODE에 Todo Tree, Bookmarks 확장 설치
