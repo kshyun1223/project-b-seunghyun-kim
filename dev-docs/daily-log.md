@@ -31,3 +31,6 @@
 ### 221216
 - 교통소통정보 API가 응답하는 XML 데이터를 JSON으로 파싱
 - VSCODE에 Todo Tree, Bookmarks 확장 설치
+- 개발문서 정리
+- 아키텍처 정리 => 모듈 어떻게 나눌지, 비즈니스 로직 어디로 들어갈지
+- Nest.js의 Singleton 개념 공부 => In Nest, modules are singletons by default, and thus you can share the same instance of any provider between multiple modules effortlessly. (https://docs.nestjs.com/modules)
