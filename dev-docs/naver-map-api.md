@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,3 +53,4 @@ const loadMap = (lat, lng) => {
 </script>
 </body>
 </html>
+```
