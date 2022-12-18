@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  <title></title>
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi"></script>
-  <script>
+
+  {{ title }}
+  {{!-- <title></title> --}}
+
+  {{ cdn }}
+  {{!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi"></script> --}}
+  
+  {{ script }}
+  {{!-- <script>
     navigator.geolocation.getCurrentPosition(showPosition)
 
     function showPosition (position) { 
@@ -22,10 +28,11 @@
         center: new naver.maps.LatLng(lat, lng)
       });
     }
-  </script>
+  </script> --}}
 </head>
+
 <body>
-  <div>{{ message }}</div>
-  <div id="map" style="width:400px; height:400px"></div>
+  {{ body }}
+  {{!-- <div id="map" style="width:400px; height:400px"></div> --}}
 </body>
 </html>
