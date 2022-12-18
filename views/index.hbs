@@ -2,37 +2,30 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-
-  {{ title }}
-  {{!-- <title></title> --}}
-
-  {{ cdn }}
-  {{!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi"></script> --}}
-  
-  {{ script }}
-  {{!-- <script>
-    navigator.geolocation.getCurrentPosition(showPosition)
-
-    function showPosition (position) { 
-      loadMap(position.coords.latitude,
-      position.coords.longitude)
-      
-      console.log(position.coords.latitude,
-      position.coords.longitude)
+  <title>title</title>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi"></script>
+  <script>
+    const start = () => {
+      const showPosition = (position) => { 
+        loadMap(
+          position.coords.latitude,
+          position.coords.longitude
+        )
+      }
+      navigator.geolocation.getCurrentPosition(showPosition)
     }
+    start()
 
     const loadMap = (lat, lng) => {
-      map = new naver.maps.Map('map',{
+      new naver.maps.Map('map',{
         center: new naver.maps.LatLng(lat, lng)
       });
     }
-  </script> --}}
+  </script>
 </head>
-
 <body>
+  <div id="map" style="width:400px; height:400px"></div>
   {{ body }}
-  {{!-- <div id="map" style="width:400px; height:400px"></div> --}}
 </body>
 </html>
