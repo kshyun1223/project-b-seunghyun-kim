@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  <title>title</title>
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi"></script>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi&amp;submodules=panorama"></script>
+</head>
+<body>
+  <style type="text/css">
+    #wrap .buttons, #wrap .checkbox { position:absolute;top:0;left:0;z-index:1000;padding:5px; }
+    #wrap .buttons .control-btn { margin:0 5px 5px 0; }
+  </style>
+  <div id="wrap" class="section">
+      <div id="map" style="width:400px; height:400px">
+          <div class="buttons">
+              <input id="traffic" type="button" value="교통상황" class="control-btn" />
+          </div>
+      </div>
+    </div>
   <script>
     const start = () => {
       const showPosition = (position) => { 
@@ -27,12 +40,16 @@
             style: naver.maps.ZoomControlStyle.SMALL,
             position: naver.maps.Position.TOP_RIGHT
         },
-      });
+      })
     }
+
+    const trafficLayer = new naver.maps.TrafficLayer({
+        interval: 300000
+    });
+    
+    naver.maps.Event.once('map', 'init', () => {
+        trafficLayer.setMap(map);
+    });
   </script>
-</head>
-<body>
-  <div id="map" style="width:400px; height:400px"></div>
-  {{ index }}
 </body>
 </html>
