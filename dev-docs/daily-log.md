@@ -30,7 +30,11 @@
 
 ### 221216
 - 교통소통정보 API가 응답하는 XML 데이터를 JSON으로 파싱
-- VSCODE에 Todo Tree, Bookmarks 확장 설치
 - 개발문서 정리
 - 아키텍처 정리 => 모듈 어떻게 나눌지, 비즈니스 로직 어디로 들어갈지
-- Nest.js의 Singleton 개념 공부 => In Nest, modules are singletons by default, and thus you can share the same instance of any provider between multiple modules effortlessly. (https://docs.nestjs.com/modules)
+- Nest.js의 Singleton 개념 공부 (https://docs.nestjs.com/modules)
+
+### 221219
+- web dynamic map과 교통소통정보 API 기능 리스트업
+- view 엔진을 hbs에서 html로 바꾸는 것과 파일 모듈을 사용해서 html 문자열을 텍스트 파일로 취급하는 것을 검토
+  - 왜 안 되는지 모르겠음. 일단 기술에 더 집착할 시점은 아니므로 패스.

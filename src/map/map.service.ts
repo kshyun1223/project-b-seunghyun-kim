@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class MapService {
-    private body = { body: 'body' }
+    private index = { index: 'welcome' }
 
     getLogic() {
-      return this.body;
+      return this.index;
   }
 }
