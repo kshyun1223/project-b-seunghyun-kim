@@ -19,7 +19,14 @@
 
     const loadMap = (lat, lng) => {
       new naver.maps.Map('map',{
-        center: new naver.maps.LatLng(lat, lng)
+        center: new naver.maps.LatLng(lat, lng),
+        scaleControl: false,
+        mapDataControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: naver.maps.ZoomControlStyle.SMALL,
+            position: naver.maps.Position.TOP_RIGHT
+        },
       });
     }
   </script>
