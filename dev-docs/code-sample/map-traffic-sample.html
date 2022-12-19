@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=orK7_YeBAdN64OJ8HUVz&amp;submodules=panorama"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xpjr4qacwi&amp;submodules=panorama"></script>
 </head>
 <body>
 <style type="text/css">
@@ -19,9 +20,9 @@
         <div class="buttons">
             <input id="traffic" type="button" value="교통상황" class="control-btn" />
         </div>
-        <div class="checkbox">
+        <!-- <div class="checkbox">
             <input id="autorefresh" type="checkbox" checked="checked" value="1" /><label for="autorefresh">자동 새로고침</label>
-        </div>
+        </div> -->
     </div>
     <code id="snippet" class="snippet"></code>
 </div>
@@ -35,42 +36,9 @@
     })
 
     var trafficLayer = new naver.maps.TrafficLayer({
-        interval: 300000 // 5분마다 새로고침 (최소값 5분)
+        interval: 300000
     });
 
-    var btn = $('#traffic');
-
-    naver.maps.Event.addListener(map, 'trafficLayer_changed', function(trafficLayer) {
-        if (trafficLayer) {
-            btn.addClass('control-on');
-            $("#autorefresh").parent().show();
-            $("#autorefresh")[0].checked = true;
-        } else {
-            btn.removeClass('control-on');
-            $("#autorefresh").parent().hide();
-        }
-    });
-
-    btn.on("click", function(e) {
-        e.preventDefault();
-
-        if (trafficLayer.getMap()) {
-            trafficLayer.setMap(null);
-        } else {
-            trafficLayer.setMap(map);
-        }
-    });
-
-    $("#autorefresh").on("click", function(e) {
-        var btn = $(this),
-            checked = btn.is(":checked");
-
-        if (checked) {
-            trafficLayer.startAutoRefresh();
-        } else {
-            trafficLayer.endAutoRefresh();
-        }
-    });
 
     naver.maps.Event.once(map, 'init', function() {
         trafficLayer.setMap(map);
