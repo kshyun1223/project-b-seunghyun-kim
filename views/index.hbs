@@ -28,15 +28,23 @@
   </div>
 
   <script>
-    const start = () => {
-      const showPosition = (position) => { 
-        loadMap(
-          position.coords.latitude,
-          position.coords.longitude
-        )
-      }
-      navigator.geolocation.getCurrentPosition(showPosition)
+    const jaebal = () => {
+      return new Promise((res, rej) => {
+        navigator.geolocation.getCurrentPosition(res, rej)
+      })
     }
+    
+    const main = async () => {
+      const position = await jaebal()
+      console.log(position.coords.latitude,
+          position.coords.longitude)
+    }
+
+    main()
+
+        /* loadMap(
+          
+        )
     start()
 
     const loadMap = (lat, lng) => {
@@ -60,7 +68,7 @@
       naver.maps.Event.once(map, 'init', function () {
         trafficLayer.setMap(map);
       });
-    }
+    } */
   </script>
 </body>
 </html>
