@@ -28,26 +28,9 @@
   </div>
 
   <script>
-    const jaebal = () => {
-      return new Promise((res, rej) => {
-        navigator.geolocation.getCurrentPosition(res, rej)
-      })
-    }
-    
-    const main = async () => {
-      const position = await jaebal()
-      console.log(position.coords.latitude,
-          position.coords.longitude)
-    }
-
-    main()
-
-        /* loadMap(
-          
-        )
-    start()
-
-    const loadMap = (lat, lng) => {
+    const loadMap = (position) => {
+      const lat = position.coords.latitude
+      const lng = position.coords.longitude
       new naver.maps.Map('map',{
         center: new naver.maps.LatLng(lat, lng),
         scaleControl: false,
@@ -58,9 +41,10 @@
             position: naver.maps.Position.TOP_RIGHT
         },
       })
-      asdf()
     }
+    navigator.geolocation.getPosition(loadMap)
 
+    /*
     const asdf=()=>{
       new naver.maps.TrafficLayer({
         interval: 300000
@@ -68,7 +52,8 @@
       naver.maps.Event.once(map, 'init', function () {
         trafficLayer.setMap(map);
       });
-    } */
+    } 
+    */
   </script>
 </body>
 </html>
