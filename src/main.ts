@@ -8,8 +8,8 @@ const port = 3000
 async function main() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
 
-  app.useStaticAssets(join(__dirname, '../public'));
-  app.setBaseViewsDir(join(__dirname, '../views'));
+  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
 
   await app.listen(port)
