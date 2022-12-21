@@ -66,4 +66,6 @@
 - 교통소통정보 자바 예제코드 뜯어보기
 - Nest.js 모듈간 데이터 이동 실습
 - 브이월드 API 파악
-- 외부 API 테스트 도구로 Swagger 도입.
+
+### 성공한 일 
+- 주소로 메르카토르 좌표 조회: `http://api.vworld.kr/req/search?service=search&request=search&version=2.0&crs=EPSG:900913&bbox=14140071.146077,4494339.6527027,14160071.146077,4496339.6527027&size=10&page=1&query=<주소>&type=address&category=road&format=json&errorformat=json&key=<API키>`
