@@ -61,11 +61,11 @@
 ### 시도한 일
 - hbs 파일에서 외부 css랑 js 파일을 인식 못한다. 어느 단에서 문제인걸까?
 
-## 221221
-### 해야 할 일
-- 교통소통정보 자바 예제코드 뜯어보기
-- Nest.js 모듈간 데이터 이동 실습
-- 브이월드 API 파악
-
-### 성공한 일 
-- 주소로 메르카토르 좌표 조회: `http://api.vworld.kr/req/search?service=search&request=search&version=2.0&crs=EPSG:900913&bbox=14140071.146077,4494339.6527027,14160071.146077,4496339.6527027&size=10&page=1&query=<주소>&type=address&category=road&format=json&errorformat=json&key=<API키>`
+## 221222
+### 브이월드에서 표준교통노드, 링크 출력
+- 일단 wms를 사용해서 노드, 링크 모두 출력은 가능
+- 하지만 브이월드에서는 [출력만 지원하기 때문에](https://www.vworld.kr/v4po_brdqna_s002.do?pageIndex=1&searchCondition=&searchKeyword=&bodIde=53&brdIde=20288&fileCheck=Y&repyCheck=Y) 아무짝에도 쓸모가 없다
+### 향후 대응방안
+- 링크를 출력하면 좋겠지만 곡률이라던가 단순 출력이 너무 어렵기 때문에 노드로 진행
+- 일단 노드 목록 디비에 저장하고 커스텀 이벤트로 화면 클릭하면 노드 아이디 출력되게 구현
+- 이후 교통소통API와 연동해서 현재 통과속도 출력
