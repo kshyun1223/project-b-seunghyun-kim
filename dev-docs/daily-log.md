@@ -64,3 +64,6 @@
 - 하지만 브이월드에서는 [출력만 지원하기 때문에](https://www.vworld.kr/v4po_brdqna_s002.do?pageIndex=1&searchCondition=&searchKeyword=&bodIde=53&brdIde=20288&fileCheck=Y&repyCheck=Y) 아무짝에도 쓸모가 없다
 - 애초에 노드도 링크도 좌표값을 공개하지 않기 때문에 둘중 선택을 떠나서 어차피 불가능하다
 - 브이월드 지도에서는 노드나 링크를 클릭하면 아이디를 띄워주는데 어떻게 했는지 알 수가 없다
+
+### CSV Import
+- 다이나모디비는 150줄 까지밖에 임포트가 안 되기 때문에 일단 몽고디비로 해보기로 함
