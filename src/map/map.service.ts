@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class MapService {
-  private test = { message: 'ㅁㄴㅇㄹ' }
+    private index = { index: 'welcome' }
 
-  getLogic() {
-      return this.test;
+    getLogic() {
+      return this.index;
   }
 }
