@@ -47,10 +47,15 @@
         position.coords.longitude
       )
     }
-    getPosition()
 
-    const showPosition = (let, lng) => { // 이동
-      map.setCenter(new naver.maps.LatLng(let, lng));
+    getPosition() // 실행
+
+    const showPosition = (let, lng) => { 
+      map.setCenter(new naver.maps.LatLng(let, lng)) // 현위치로 이동
+      new naver.maps.Marker({ // 현위치에 마커 표시
+        position: new naver.maps.LatLng(let, lng),
+        map: map
+      });
     }
   </script>
 </body>
