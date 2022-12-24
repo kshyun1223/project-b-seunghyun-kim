@@ -11,14 +11,7 @@
       position: naver.maps.Position.TOP_RIGHT
     },
   })
-  /* 교통 레이어 렌더링 */
-  // trafficLayer라는 변수는 렌더링에 사용
-  /* const trafficLayer = new naver.maps.TrafficLayer({
-    interval: 300000
-  })
-  naver.maps.Event.once(map, 'init', function () {
-    trafficLayer.setMap(map);
-  }) */
+
   /* 현위치로 이동 */
   const getPosition = () => { // 현위치 정보 획득
     navigator.geolocation.getCurrentPosition(splitPosition)
@@ -30,24 +23,23 @@
     )
   }
   getPosition() // 실행
-  const showPosition = (let, lng) => { 
-    map.setCenter(new naver.maps.LatLng(let, lng)) // 현위치로 이동
+  const showPosition = (let, lng) => { // 현위치로 이동
+    map.setCenter(new naver.maps.LatLng(let, lng)) 
     var infoWindow = new naver.maps.InfoWindow();
     marker = new naver.maps.Marker({ // 현위치에 마커 표시
       position: new naver.maps.LatLng(let, lng),
       map: map,
       clickable: true
     })
-    naver.maps.Event.addListener(marker, "click", function () {
-      infoWindow.setContent(getContentElement(let, lng));
+    naver.maps.Event.addListener(marker, "click", function () { // 팝업 실행
+      infoWindow.setContent(getContentElement(let, lng)); 
       infoWindow.open(map, marker);
     })
-    naver.maps.Event.addListener(map, 'click', function () {
-      infoWindow.close();
+    naver.maps.Event.addListener(map, 'click', function () { // 팝업 종료
+      infoWindow.close(); 
     })
-    function getContentElement(let, lng) {
-      return '<div>' + let + '<br>' + lng + '</div>'
+    function getContentElement(let, lng) { // 팝업 내용
+      return '<div>' + '현위치' + '<br>' + let + '<br>' + lng + '</div>'
     }
   }
-  
 </script>
