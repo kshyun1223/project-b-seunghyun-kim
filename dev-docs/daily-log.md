@@ -77,3 +77,15 @@
 
 ### mongoose
 - 네스트 프로젝트에 몽구스 적용 중
+
+## 20221224
+### mongoDB
+- 몽구스 너무 복잡해서 패스
+- 따로 익스프레스 프로젝트 하나 파서 몽고디비 조회 성공
+- 디비 필드명 교통API랑 일치하게 변경
+```javascript
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_XCODE":"MinX"}})
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_YCODE":"MinY"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_XCODE":"MaxX"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_YCODE":"MaxY"}})
+````
