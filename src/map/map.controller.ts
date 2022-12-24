@@ -1,5 +1,4 @@
-import { Get, Controller, Render, Res } from '@nestjs/common';
-import { response } from 'express';
+import { Get, Controller, Res } from '@nestjs/common';
 import { MapService } from './map.service';
 import { Response } from 'express'
 
