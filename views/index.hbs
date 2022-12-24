@@ -40,42 +40,42 @@
     const getPosition = () => { // 현위치 정보 획득
       navigator.geolocation.getCurrentPosition(splitPosition)
     }
-
     const splitPosition = (position) => { // 위도와 경도로 분리
       showPosition(
         position.coords.latitude,
         position.coords.longitude
       )
     }
-
     getPosition() // 실행
-
     const showPosition = (let, lng) => { 
       map.setCenter(new naver.maps.LatLng(let, lng)) // 현위치로 이동
+    }
 
-      var infoWindow = new naver.maps.InfoWindow();
-
-      marker = new naver.maps.Marker({ // 현위치에 마커 표시
+    /* 마커 표시 */
+    const traffic = (name, let, lng) => {
+      const marker = new naver.maps.Marker({ // 마커 표시
         position: new naver.maps.LatLng(let, lng),
         map: map,
         clickable: true
       })
 
-      naver.maps.Event.addListener(marker, "click", function () {
+      const infoWindow = new naver.maps.InfoWindow() // 팝업 생성자
+      
+      naver.maps.Event.addListener(marker, "click", function () { // 팝업 실행
         infoWindow.setContent(getContentElement(let, lng));
         infoWindow.open(map, marker);
       })
 
-      naver.maps.Event.addListener(map, 'click', function () {
+      naver.maps.Event.addListener(map, 'click', function () { // 팝업 종료
         infoWindow.close();
       })
 
-      function getContentElement(let, lng) {
-        return '<div>' + let + '<br>' + lng + '</div>'
+      function getContentElement(let, lng) { // 팝업 내용
+        return '<div>' + name + '<br>' + let + '<br>' + lng + '</div>'
       }
     }
 
-    
+    traffic('울라울라', 35.5084908, 126.2486436)
   </script>
 </body>
 </html>
