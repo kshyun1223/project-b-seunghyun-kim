@@ -6,8 +6,11 @@ export class MapService {
   private html = (tag) => {
     return fs.readFileSync('D:/vscode repo/project-b-seunghyun-kim/static/'+tag+'.txt', 'utf8')
   }
+  private data = `
+    ${this.html('index')}
+  `
 
   getData() {
-    return this.html('index')
+    return this.data
   }
 }
