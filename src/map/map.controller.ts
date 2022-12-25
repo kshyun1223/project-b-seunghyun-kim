@@ -7,12 +7,16 @@ import * as fs from 'fs'
 
 @Controller('/')
 export class MapController {
-  constructor(private mapService : MapService,
-    dbService : DbService){}
+  constructor(
+    private mapService : MapService,
+    private dbService : DbService
+  ){}
   @Get()
   root(@Res() res: Response) {
     const map = this.mapService.getPage()
-    const marker = fs.readFileSync('src/db/marker.txt')
+    this.dbService.getData()
+    this.dbService.processData()
+    const marker = fs.readFileSync('src/db/temp/marker.txt')
     res.send(map+marker)
   }
 }
