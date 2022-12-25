@@ -13,14 +13,25 @@ export class DbService {
     const run = async () => {
       try {
         const db = client.db('traffic');
-        const traffic = await db.collection('traffic').find({}).toArray();
-        const logJson = JSON.stringify(traffic, null, 2);
-        fs.writeFileSync("./src/db/data.json", logJson);
+        const data = await db.collection('traffic').find({}).toArray();
+        const logJson = JSON.stringify(data, null, 2);
+        fs.writeFileSync("./src/db/temp/data.json", logJson);
       } finally {
         await client.close();
       }
     }
     run().catch(console.dir);
+  }
+
+  processData(){
+    const loadData = fs.readFileSync('./src/db/temp/data.json', 'utf8')
+    const parsed = JSON.parse(loadData)
+    const mapped = parsed.map(index => {
+      return `traffic('${index.LK_NM}', ${index.MinX}, ${index.MaxY})`
+    });
+    const string = JSON.stringify(mapped)
+    const replace = string.replace(/","/g, '\n').replace(/\["/g, '').replace(/"\]/g, '')
+    fs.writeFileSync('./src/db/temp/marker.txt', `<script>${replace}</script>`, 'utf8')
   }
 }
 
