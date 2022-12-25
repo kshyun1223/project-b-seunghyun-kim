@@ -27,7 +27,7 @@ export class DbService {
     const loadData = fs.readFileSync('./src/db/temp/data.json', 'utf8')
     const parsed = JSON.parse(loadData)
     const mapped = parsed.map(index => {
-      return `traffic('${index.LK_NM}', ${index.MinX}, ${index.MaxY})`
+      return `traffic('${index.LK_NM}', ${index.MinX}, ${index.MinY}, ${index.MaxX}, ${index.MaxY})`
     });
     const string = JSON.stringify(mapped)
     const replace = string.replace(/","/g, '\n').replace(/\["/g, '').replace(/"\]/g, '')
