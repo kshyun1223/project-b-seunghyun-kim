@@ -1,3 +1,4 @@
+### 연결
 ```javascript
 import { MongoClient } from "mongodb";
 const uri = ""
@@ -14,4 +15,12 @@ const run = async () => {
 run().catch(console.dir());
 
 const output = (traffic) => console.log(traffic)
+```
+
+### 수정
+```javascript
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_XCODE":"MinX"}})
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_YCODE":"MinY"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_XCODE":"MaxX"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_YCODE":"MaxY"}})
 ```
