@@ -68,3 +68,24 @@
 ### CSV Import
 - 다이나모디비는 150줄 까지밖에 임포트가 안 되기 때문에 일단 몽고디비로 해보기로 함
   - 멘토업체에서 제공한 CSV 파일 몽고디비에 임포트 함
+
+## 20221223
+### 네이버지도
+- 지도API 브이월드에서 도로 네이버로 변경
+- 지도에 마커 표시
+- 마커 클릭시 좌표 출력되는 이벤트 구현
+
+### mongoose
+- 네스트 프로젝트에 몽구스 적용 중
+
+## 20221224
+### mongoDB
+- 몽구스 너무 복잡해서 패스
+- 따로 익스프레스 프로젝트 하나 파서 몽고디비 조회 성공
+- 디비 필드명 교통API랑 일치하게 변경
+```javascript
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_XCODE":"MinX"}})
+await db.collection('traffic').updateMany({},{$rename:{"BEGIN_NODE_YCODE":"MinY"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_XCODE":"MaxX"}})
+await db.collection('traffic').updateMany({},{$rename:{"END_NODE_YCODE":"MaxY"}})
+````
