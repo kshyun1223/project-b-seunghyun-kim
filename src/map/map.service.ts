@@ -13,7 +13,7 @@ export class MapService {
     ${this.html('script')}
   `
 
-  getData() {
+  getPage() {
     return this.data
   }
 }
