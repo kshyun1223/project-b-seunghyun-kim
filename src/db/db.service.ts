@@ -1,23 +1,26 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { MongoClient } from "mongodb"
+import * as fs from 'fs'
 
 @Injectable()
 export class DbService {
   constructor(private configService: ConfigService){}
-  private uri = this.configService.get('MONGO_URL')
-  private client = new MongoClient(this.uri);
-  private run = async () => {
+
+  getData() {
+    const uri = this.configService.get('MONGO_URL')
+    const client = new MongoClient(uri);
+    const run = async () => {
       try {
-        const db = this.client.db('traffic');
+        const db = client.db('traffic');
         const traffic = await db.collection('traffic').find({}).toArray();
-        return traffic
+        const logJson = JSON.stringify(traffic, null, 2);
+        fs.writeFileSync("./src/db/data.json", logJson);
       } finally {
-        await this.client.close();
+        await client.close();
       }
     }
-
-    getData() {
-    return console.log(this.run)
+    run().catch(console.dir);
   }
 }
+
