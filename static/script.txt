@@ -13,9 +13,9 @@
   })
 
   /* 마커 띄우기 */
-  const traffic = (name, minY, minX, maxX, maxY) => {
+  const traffic = (name, minX, minY, maxX, maxY) => {
     const marker = new naver.maps.Marker({ // 마커 표시
-      position: new naver.maps.LatLng(minX, minY),
+      position: new naver.maps.LatLng(minY, minX),
       map: map,
       clickable: true
     })
