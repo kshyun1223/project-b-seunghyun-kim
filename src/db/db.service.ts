@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { MongoClient } from "mongodb"
+import { MongoClient } from 'mongodb'
 import * as fs from 'fs'
 
 @Injectable()
