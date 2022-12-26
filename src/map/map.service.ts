@@ -3,8 +3,8 @@ import * as fs from 'fs'
 
 @Injectable()
 export class MapService {
-  private html = (tag) => {
-    return fs.readFileSync('D:/vscode repo/project-b-seunghyun-kim/static/'+tag+'.txt', 'utf8')
+  private html = (tag: string) => {
+    return fs.readFileSync('./static/'+tag+'.txt', 'utf8')
   }
   
   private data = `
