@@ -5,7 +5,7 @@ import * as fs from 'fs'
 
 @Injectable()
 export class TrafficService {
-  constructor(private configService: ConfigService){}
+  constructor(private configService: ConfigService){} // 전역으로 설정된 config 모듈은 이렇게 가져온다
   private key = this.configService.get('TRAFFIC_KEY')
   getTraffic(minX, minY, maxX, maxY) {
     fetch(`https://openapi.its.go.kr:9443/trafficInfo?apiKey=${this.key}&type=all&minX=${minX}&minY=${minY}&maxX=${maxX}&maxY=${maxY}`)

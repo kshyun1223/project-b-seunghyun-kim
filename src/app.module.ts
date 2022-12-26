@@ -8,7 +8,7 @@ import { TrafficModule } from './traffic/traffic.module';
   imports: [
     MapModule,
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true // 개별 모듈별로 일일이 config 모듈을 import 하지 않아도 사용할 수 있도록 전역으로 설정
     }),
     TrafficModule
   ],

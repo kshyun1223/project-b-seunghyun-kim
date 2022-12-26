@@ -5,7 +5,7 @@ import * as fs from 'fs'
 
 @Injectable()
 export class DbService {
-  constructor(private configService: ConfigService){}
+  constructor(private configService: ConfigService){} // 전역으로 설정된 config 모듈은 이렇게 가져온다
 
   getData() {
     const uri = this.configService.get('MONGO_URL')
