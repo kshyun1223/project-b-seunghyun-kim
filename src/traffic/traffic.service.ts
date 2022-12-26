@@ -23,10 +23,10 @@ export class TrafficService {
       })
       .then((parsedData) => {
         const speed = parsedData.response.body.items.item[0].speed._text+'km/h'
-        fs.writeFileSync('./src/traffic/speed.txt', speed, 'utf8')
+        fs.writeFileSync('./src/traffic/temp/speed.txt', speed, 'utf8')
       })
       .catch((error) => {
-        fs.writeFileSync('./src/traffic/speed.txt', 'error', 'utf8')
+        fs.writeFileSync('./src/traffic/temp/speed.txt', 'error', 'utf8')
       });
   }
 }

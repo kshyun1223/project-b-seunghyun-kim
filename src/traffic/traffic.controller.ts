@@ -9,7 +9,7 @@ export class TrafficController {
   @Get()
   root(@Res() res: Response, @Req() req: Request) {
     this.trafficService.getTraffic(req.query.minX, req.query.minY, req.query.maxX, req.query.maxY)
-    const temp = fs.readFileSync('./src/traffic/speed.txt','utf-8')
+    const temp = fs.readFileSync('./src/traffic/temp/speed.txt','utf-8')
     res.send(JSON.stringify(temp))
   }
 }
