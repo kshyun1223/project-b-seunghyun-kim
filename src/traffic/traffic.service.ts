@@ -10,17 +10,23 @@ export class TrafficService {
   getTraffic(minX, minY, maxX, maxY) {
     fetch(`https://openapi.its.go.kr:9443/trafficInfo?apiKey=${this.key}&type=all&minX=${minX}&minY=${minY}&maxX=${maxX}&maxY=${maxY}`)
       .then((res) => {
-        // console.log('Response status: ' + res.status)
         const rawData = res.text()
         return rawData
       })
       .then((rawData) => {
-        const parsedData = xml2json.xml2json(rawData, {compact: true, spaces: 2})
-        fs.writeFileSync('./test.json', parsedData)
+        const json = xml2json.xml2json(rawData, {compact: true, spaces: 2})
+        return json
       })
+      .then((json) => {
+        const parsedData = JSON.parse(json)
+        return parsedData
+      })
+      .then((parsedData) => {
+        const speed = parsedData.response.body.items.item[0].speed._text+'km/h'
+        console.log(speed)
+      })
+      .catch((error) => {
+        console.error('undefined');
+      });
   }
 }
-
-
-
-// error(4009)
