@@ -34,7 +34,12 @@
     })
 
     function getContentElement(minX, minY, data) { // 팝업 내용
-      return '<div>' + name + '<br>' + minX + '<br>' + minY + '<br>' + data + '</div>'
+      return`
+        <div>
+          ${name}<br>
+          위치: ${minX}, ${minY}<br>
+          통행속도: ${data}
+        </div>`
     }
   }
 </script>
