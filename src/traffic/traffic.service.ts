@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config'
-import * as fs from 'fs'
 const xml2json = require('xml-js')
+import * as fs from 'fs'
 
 @Injectable()
 export class TrafficService {
@@ -23,10 +23,10 @@ export class TrafficService {
       })
       .then((parsedData) => {
         const speed = parsedData.response.body.items.item[0].speed._text+'km/h'
-        console.log(speed)
+        fs.writeFileSync('./src/traffic/speed.txt', speed, 'utf8')
       })
       .catch((error) => {
-        console.error('undefined');
+        fs.writeFileSync('./src/traffic/speed.txt', 'error', 'utf8')
       });
   }
 }
