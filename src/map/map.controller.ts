@@ -7,10 +7,8 @@ import * as fs from 'fs'
 
 @Controller('/')
 export class MapController {
-  constructor(
-    private mapService : MapService,
-    private dbService : DbService
-  ){}
+  constructor(private mapService : MapService,
+    private dbService : DbService){}
   @Get()
   root(@Res() res: Response) {
     const map = this.mapService.getPage()
