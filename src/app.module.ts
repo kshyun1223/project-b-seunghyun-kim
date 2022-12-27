@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common'
-import { MapService } from './map/map.service'
 import { MapModule } from './map/map.module'
 import { ConfigModule } from '@nestjs/config'
 import { TrafficModule } from './traffic/traffic.module';
@@ -12,6 +11,5 @@ import { TrafficModule } from './traffic/traffic.module';
     }),
     TrafficModule
   ],
-  providers: [MapService],
 })
 export class AppModule {}
