@@ -10,6 +10,6 @@ async function main() {
   const port = configService.get('NODE_SERVER_PORT')
 
   await app.listen(port)
-  console.log(`http://localhost:${port}`)
+  console.log(`port:${port}`)
 }
 main()
