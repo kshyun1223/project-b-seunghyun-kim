@@ -9,7 +9,7 @@ export class TrafficService {
   private key = this.configService.get('TRAFFIC_KEY')
   getTraffic(minX, minY, maxX, maxY) {
     const url = `https://openapi.its.go.kr:9443/trafficInfo?apiKey=${this.key}&type=all&minX=${minX}&minY=${minY}&maxX=${maxX}&maxY=${maxY}`
-    // console.log(url)
+    console.log(url)
     fetch(url)
       .then((res) => {
         const rawData = res.text()
@@ -25,7 +25,7 @@ export class TrafficService {
       })
       .then((parsedData) => {
         const speed = parsedData.response.body.items.item[0].speed._text+'km/h'
-        // console.log(speed)
+        console.log(speed)
         fs.writeFileSync('./src/traffic/temp/speed.txt', speed, 'utf8')
       })
       .catch((error) => {
