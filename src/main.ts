@@ -1,17 +1,23 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { ConfigService } from "@nestjs/config"
+import { ConfigModule } from '@nestjs/config'
 
 async function main() {
   const app = await NestFactory.create(AppModule)
-  // NestFactory가 뭐지? 코어 모듈이라는건가?
 
-  const configService = app.get(ConfigService)
-  const env = configService.get('NODE_ENV')
-  const port = configService.get('NODE_SERVER_PORT')
-  const mongoUrl = configService.get('MONGO_URL')
-  const trafficKey = configService.get('TRAFFIC_KEY')
-  const fetchURL = configService.get('FETCH_URL')
+  ConfigModule.forRoot()
+  
+  ConfigModule.forRoot({
+    isGlobal: true,
+    envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.prod',
+    ignoreEnvFile: process.env.NODE_ENV === 'prod',
+  })
+
+  const env = process.env.NODE_ENV
+  const port = process.env.NODE_SERVER_PORT
+  const mongoUrl = process.env.MONGO_URL
+  const trafficKey = process.env.TRAFFIC_KEY
+  const fetchURL = process.env.FETCH_URL
 
   await app.listen(port)
   console.log(`env:${env}`)
