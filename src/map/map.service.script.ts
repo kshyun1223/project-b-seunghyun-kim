@@ -30,10 +30,13 @@ export class MapScript {
         const infoWindow = new naver.maps.InfoWindow() // 팝업 생성자
 
         naver.maps.Event.addListener(marker, "click", function () { // 팝업 실행
+          infoWindow.setContent(getContentElement(minX, minY, "loading"))
+          infoWindow.open(map, marker)
           fetch(\`${this.configService.get('FETCH_URL')}/traffic?minX=\${minX}&minY=\${minY}&maxX=\${maxX}&maxY=\${maxY}\`)
-            .then((response) => response.json())
-            .then((data) => infoWindow.setContent(getContentElement(minX, minY, data)))
-          infoWindow.open(map, marker);
+            .then(response => response.json())
+            .then(data => 
+              infoWindow.setContent(getContentElement(minX, minY, data))
+            )
         })
 
         naver.maps.Event.addListener(map, 'click', function () { // 팝업 종료
