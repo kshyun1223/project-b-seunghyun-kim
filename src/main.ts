@@ -5,14 +5,6 @@ import { ConfigModule } from '@nestjs/config'
 async function main() {
   const app = await NestFactory.create(AppModule)
 
-  ConfigModule.forRoot()
-  
-  ConfigModule.forRoot({
-    isGlobal: true,
-    envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.prod',
-    ignoreEnvFile: process.env.NODE_ENV === 'prod',
-  })
-
   const env = process.env.NODE_ENV
   const port = process.env.NODE_SERVER_PORT
   const mongoUrl = process.env.MONGO_URL
