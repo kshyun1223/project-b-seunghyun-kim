@@ -35,4 +35,6 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # @nest/config
-.env
+.env_dev
+.env_prod
+.env_stage
