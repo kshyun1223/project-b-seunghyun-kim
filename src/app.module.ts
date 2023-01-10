@@ -1,15 +1,30 @@
 import { Module } from '@nestjs/common'
 import { MapModule } from './map/map.module'
+import { TrafficModule } from './traffic/traffic.module'
 import { ConfigModule } from '@nestjs/config'
-import { TrafficModule } from './traffic/traffic.module';
+
+const envChange = () => {
+  switch(process.env.NODE_ENV){
+    case 'dev':
+      return '.env_dev'
+
+    case 'prod':
+      return '.env_prod'
+
+    case 'stage':
+      return '.env_stage'
+  }
+}
 
 @Module({
   imports: [
-    MapModule,
+    MapModule, 
+    TrafficModule,
     ConfigModule.forRoot({
-      isGlobal: true // 개별 모듈별로 일일이 config 모듈을 import 하지 않아도 사용할 수 있도록 전역으로 설정
-    }),
-    TrafficModule
+      isGlobal: true,
+      envFilePath: envChange(),
+    })
   ],
 })
+
 export class AppModule {}
